@@ -1,5 +1,6 @@
 'use client'
 import '@/app/globals.css';
+import '@fontsource/poppins'; 
 import Layout from '../components/Layout/Layout';
 
 export default function RootLayout({

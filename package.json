@@ -11,7 +11,10 @@
   "dependencies": {
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
-    "@mui/material": "^6.4.0",
+    "@fontsource/poppins": "^5.1.1",
+    "@mui/icons-material": "^6.4.4",
+    "@mui/material": "^6.4.4",
+    "@mui/system": "^6.4.3",
     "autoprefixer": "^10.4.20",
     "next": "15.1.5",
     "next-i18next": "^15.4.1",
