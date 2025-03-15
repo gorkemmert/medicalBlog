@@ -16,15 +16,55 @@
       "static/chunks/main-app.js",
       "static/chunks/app/about/page.js"
     ],
-    "/contact/page": [
+    "/services/beseri-tibbi-urunler/ilac-ruhsatlandirma/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/contact/page.js"
+      "static/chunks/app/services/beseri-tibbi-urunler/ilac-ruhsatlandirma/page.js"
     ],
-    "/services/page": [
+    "/services/tibbi-cihazlar/belge-kaydi/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/services/page.js"
+      "static/chunks/app/services/tibbi-cihazlar/belge-kaydi/page.js"
+    ],
+    "/services/medikal-ceviri/ruhsat-dosyasi-hazirlama/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/medikal-ceviri/ruhsat-dosyasi-hazirlama/page.js"
+    ],
+    "/services/diger/firma-kaydi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/diger/firma-kaydi/page.js"
+    ],
+    "/services/diger/arsiv-olusturma/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/diger/arsiv-olusturma/page.js"
+    ],
+    "/services/diger/tescil-belgesi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/diger/tescil-belgesi/page.js"
+    ],
+    "/services/beseri-tibbi-urunler/ruhsat-devir/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/beseri-tibbi-urunler/ruhsat-devir/page.js"
+    ],
+    "/services/beseri-tibbi-urunler/ruhsat-yenileme/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/beseri-tibbi-urunler/ruhsat-yenileme/page.js"
+    ],
+    "/services/tibbi-cihazlar/firma-kaydi/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/services/tibbi-cihazlar/firma-kaydi/page.js"
+    ],
+    "/faq/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/faq/page.js"
     ]
   }
 }

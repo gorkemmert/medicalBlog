@@ -1,5 +1,8 @@
 {
-  "/contact/page": "app/contact/page.js",
   "/page": "app/page.js",
-  "/about/page": "app/about/page.js"
+  "/services/beseri-tibbi-urunler/ruhsat-devir/page": "app/services/beseri-tibbi-urunler/ruhsat-devir/page.js",
+  "/about/page": "app/about/page.js",
+  "/services/beseri-tibbi-urunler/ruhsat-yenileme/page": "app/services/beseri-tibbi-urunler/ruhsat-yenileme/page.js",
+  "/services/tibbi-cihazlar/firma-kaydi/page": "app/services/tibbi-cihazlar/firma-kaydi/page.js",
+  "/faq/page": "app/faq/page.js"
 }
