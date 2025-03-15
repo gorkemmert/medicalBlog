@@ -16,7 +16,6 @@ const Header = () => {
 
   // Menüyü hemen aç
   const handleMouseEnterMenu = () => {
-    // Zamanlayıcı varsa iptal et
     if (closeTimer.current) {
       clearTimeout(closeTimer.current);
       closeTimer.current = null;
@@ -28,7 +27,7 @@ const Header = () => {
   const handleMouseLeaveMenu = () => {
     closeTimer.current = setTimeout(() => {
       setServicesOpen(false);
-    }, 200); // 200ms gecikme
+    }, 200);
   };
 
   return (
@@ -37,7 +36,6 @@ const Header = () => {
         w-full h-[120px] z-10 bg-[#ebe6df] fixed drop-shadow-lg top-0 left-0 right-0
         flex flex-col justify-between relative
       "
-      // DİKKAT: Buradan onMouseLeave kaldırdık
     >
       {/* ÜST MENÜ ALANI */}
       <div className="flex justify-between items-center w-full h-full md:max-w-[1240px] mx-auto px-4">
@@ -63,7 +61,6 @@ const Header = () => {
           <div className="relative cursor-pointer">
             <button
               className="hover:text-green-800 transition"
-              // Fare butona gelince menüyü aç
               onMouseEnter={handleMouseEnterMenu}
             >
               HİZMETLER
@@ -105,12 +102,10 @@ const Header = () => {
             -translate-x-1/2
             mt-2
           "
-          // Fare menüye girince kapanma zamanlayıcısı iptal
           onMouseEnter={handleMouseEnterMenu}
-          // Fare menüden çıkınca kapanma zamanlayıcısı başlat
           onMouseLeave={handleMouseLeaveMenu}
         >
-          {/* İçerik: 4 sütun, padding, vs. */}
+          {/* İçerik: 4 sütun */}
           <div className="p-6 grid grid-cols-4 gap-6">
             {/* 1. Sütun: Beşeri Tıbbi Ürünler */}
             <div>
@@ -216,9 +211,58 @@ const Header = () => {
               <h3 className="font-semibold mb-2">Diğer</h3>
               <ul className="space-y-1 text-sm">
                 <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                  <Link href="#">...</Link>
+                  <Link href="/services/diger/firma-kaydi">Firma kaydı</Link>
                 </li>
-                {/* Diğer öğeleri buraya ekleyebilirsiniz */}
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/arsiv-olusturma">
+                    Arşiv oluşturma
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/kontrol-belgesi">
+                    Kontrol belgesi
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/tescil-belgesi">
+                    Tescil belgesi
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/ithalat-bildirimleri">
+                    İthalat bildirimleri
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/sarf-stok-bildirimleri">
+                    Sarf stok bildirimleri
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/bilimsel-kongre-kaydi">
+                    Bilimsel kongre kaydı ve bildirimleri
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/cpp-basvurusu">
+                    CPP başvurusu ve takibi
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/serbest-satis-fsc">
+                    Serbest satış sertifikası (FSC) alımı
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/ithalat-izin-belgesi">
+                    İthalat izin belgesi alımı
+                  </Link>
+                </li>
+                <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                  <Link href="/services/diger/ithalat-geri-bildirimleri">
+                    İthalat geri bildirimlerinin yapılması
+                  </Link>
+                </li>
               </ul>
             </div>
           </div>
@@ -253,67 +297,170 @@ const Header = () => {
           </button>
 
           {servicesMobileOpen && (
-            <div className="mt-2 bg-white shadow-lg rounded-md py-4 text-sm px-4 space-y-4 max-h-60 overflow-y-auto">
-              {/* 1. Bölüm: Beşeri Tıbbi Ürünler */}
-              <div>
-                <h3 className="font-semibold mb-2">Beşeri Tıbbi Ürünler</h3>
-                <ul className="space-y-1">
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/beseri-tibbi-urunler/ilac-ruhsatlandirma">
-                      İlaç Ruhsatlandırma
-                    </Link>
-                  </li>
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/beseri-tibbi-urunler/ruhsat-devir">
-                      Ruhsat Devir
-                    </Link>
-                  </li>
-                  {/* Diğer öğeler */}
-                </ul>
-              </div>
+            <div className="mt-2 bg-white shadow-lg rounded-md py-4 text-sm px-4 max-h-60 overflow-y-auto">
+              <div className="p-6 flex flex-col space-y-6">
+                {/* 1. Bölüm: Beşeri Tıbbi Ürünler */}
+                <div>
+                  <h3 className="font-semibold mb-2">Beşeri Tıbbi Ürünler</h3>
+                  <ul className="space-y-1 text-sm">
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/ilac-ruhsatlandirma">
+                        İlaç Ruhsatlandırma
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/ruhsat-devir">
+                        Ruhsat Devir
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/ruhsat-yenileme">
+                        Ruhsat Yenileme
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/varyasyon-basvurulari">
+                        Varyasyon Başvuruları
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/gmp-basvurulari">
+                        GMP Başvuruları
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/fiyat-basvurulari">
+                        Fiyat Başvuruları
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/sgk-basvuru-dosyasi">
+                        SGK Başvuru Dosyası Takibi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/satis-izni">
+                        Satış İzni
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/beseri-tibbi-urunler/kub-kt-hazirlama">
+                        KÜB/KT Hazırlama
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
 
-              {/* 2. Bölüm: Tıbbi Cihazlar */}
-              <div>
-                <h3 className="font-semibold mb-2">Tıbbi Cihazlar</h3>
-                <ul className="space-y-1">
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/tibbi-cihazlar/firma-kaydi">
-                      Firma Kaydı
-                    </Link>
-                  </li>
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/tibbi-cihazlar/belge-kaydi">
-                      Belge Kaydı
-                    </Link>
-                  </li>
-                  {/* Diğer öğeler */}
-                </ul>
-              </div>
+                {/* 2. Bölüm: Tıbbi Cihazlar */}
+                <div>
+                  <h3 className="font-semibold mb-2">Tıbbi Cihazlar</h3>
+                  <ul className="space-y-1 text-sm">
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/tibbi-cihazlar/firma-kaydi">
+                        Firma Kaydı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/tibbi-cihazlar/belge-kaydi">
+                        Belge Kaydı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/tibbi-cihazlar/tibbi-cihaz-kaydi">
+                        Tıbbi Cihaz Kaydı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/tibbi-cihazlar/mdd-mdr">
+                        MDD / MDR
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
 
-              {/* 3. Bölüm: Medikal Çeviri */}
-              <div>
-                <h3 className="font-semibold mb-2">Medikal Çeviri</h3>
-                <ul className="space-y-1">
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/medikal-ceviri/ruhsat-dosyasi">
-                      Ruhsat Dosyası Çevirisi
-                    </Link>
-                  </li>
-                  {/* Diğer öğeler */}
-                </ul>
-              </div>
+                {/* 3. Bölüm: Medikal Çeviri */}
+                <div>
+                  <h3 className="font-semibold mb-2">Medikal Çeviri</h3>
+                  <ul className="space-y-1 text-sm">
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/medikal-ceviri/ruhsat-dosyasi-hazirlama">
+                        Ruhsat Dosyası Hazırlama ve Çevirisi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/medikal-ceviri/talimat-dokuman-cevirisi">
+                        Tıbbi cihaz kullanım talimatı ve doküman çevirisi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/medikal-ceviri/bilimsel-tez-makale-arastirma-cevirisi">
+                        Bilimsel tez, makale ve araştırma çevirisi
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
 
-              {/* 4. Bölüm: Diğer */}
-              <div>
-                <h3 className="font-semibold mb-2">Diğer</h3>
-                <ul className="space-y-1">
-                  <li className="hover:bg-gray-200 px-2 py-1 rounded">
-                    <Link href="/services/diger/bilimsel-tez">
-                      Bilimsel Tez, Makale Çevirisi
-                    </Link>
-                  </li>
-                  {/* Diğer öğeler */}
-                </ul>
+                {/* 4. Bölüm: Diğer */}
+                <div>
+                  <h3 className="font-semibold mb-2">Diğer</h3>
+                  <ul className="space-y-1 text-sm">
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/firma-kaydi">
+                        Firma kaydı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/arsiv-olusturma">
+                        Arşiv oluşturma
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/kontrol-belgesi">
+                        Kontrol belgesi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/tescil-belgesi">
+                        Tescil belgesi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/ithalat-bildirimleri">
+                        İthalat bildirimleri
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/sarf-stok-bildirimleri">
+                        Sarf stok bildirimleri
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/bilimsel-kongre-kaydi">
+                        Bilimsel kongre kaydı ve bildirimleri
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/cpp-basvurusu">
+                        CPP başvurusu ve takibi
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/serbest-satis-fsc">
+                        Serbest satış sertifikası (FSC) alımı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/ithalat-izin-belgesi">
+                        İthalat izin belgesi alımı
+                      </Link>
+                    </li>
+                    <li className="hover:bg-gray-200 px-2 py-1 rounded">
+                      <Link href="/services/diger/ithalat-geri-bildirimleri">
+                        İthalat geri bildirimlerinin yapılması
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           )}
